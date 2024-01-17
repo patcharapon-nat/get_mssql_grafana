@@ -1,9 +1,9 @@
 database = [
     {
-        "server": "hippouat.viriyah.co.th",
-        "database": "vfinindb",
-        "schemas":"dbo",
-        "table":"INPUT_TRIGGER" 
+        "server": "",
+        "database": "",
+        "schemas":"",
+        "table":"" 
     }
 ]
 

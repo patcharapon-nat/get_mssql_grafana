@@ -1,0 +1,15 @@
+database = [
+    {
+        "server": "hippouat.viriyah.co.th",
+        "database": "vfinindb",
+        "schemas":"dbo",
+        "table":"INPUT_TRIGGER" 
+    }
+]
+
+user = [
+    {
+        "user":"user",
+        "password":"password"
+    }
+]

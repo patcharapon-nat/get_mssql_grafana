@@ -3,6 +3,8 @@ import pandas as pd
 import clickhouse_connect
 import database as d
 
+
+client = clickhouse_connect.get_client(host='10.99.5.244', username='default', password=d.user[1]['password'])
 def input_data(server_input):
     conn = pymssql.connect(server=server_input, user='dmp_prd', password=d.user[0]['password'], database='vfinindb')
     cursor = conn.cursor()
@@ -20,7 +22,6 @@ def input_data(server_input):
     ORDER BY 
         GroupedDateTime;
     """
-
     cursor.execute(query)
     df1 = pd.DataFrame(cursor.fetchall())
     # print(df1.shape[0])
@@ -28,12 +29,12 @@ def input_data(server_input):
     if cursor.rowcount > 0:
         df1.columns = columns
         print(df1)
-        client = clickhouse_connect.get_client(host='10.99.5.244', username='default', password='cfgs123#')
         client.insert('view_schema_check.input_trigger',df1)
     else:
         print("No Row on server :" + server_input + "at database : vfinindb")
     cursor.close()
     print("--------------------------------------------------------------------")
+client.query(f"""truncate view_schema_check.input_trigger""")
 for i in d.database:
     # print(i)
     input_data(i["server"])

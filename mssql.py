@@ -13,7 +13,8 @@ def input_data(server_input):
     SELECT 
         interface_number,
         COUNT(*) AS TotalRecords,
-    DATEADD(MINUTE, DATEDIFF(MINUTE, 0, [timestamp]) / 1 * 1, 0) AS GroupedDateTime
+    DATEADD(MINUTE, DATEDIFF(MINUTE, 0, [timestamp]) / 1 * 1, 0) AS GroupedDateTime,
+    getdate() as TimeStamp
     FROM 
         vfinindb.dbo.INPUT_TRIGGER
     GROUP BY 

@@ -27,7 +27,7 @@ def input_data(server_input):
         SELECT 
             '{server_input}' as server_name,
             interface_number,
-            timestamp,
+            CONVERT(VARCHAR,timestamp,121) as timedate,
             getdate() as TimeStamp
         FROM 
             vfinindb.dbo.INPUT_TRIGGER

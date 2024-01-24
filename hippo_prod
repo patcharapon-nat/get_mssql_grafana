@@ -1,0 +1,9 @@
+SELECT 
+    '{server_input}' as server_name,
+    interface_number,
+    timestamp.ToString(),
+    getdate() as TimeStamp
+FROM 
+    vfinindb.dbo.INPUT_TRIGGER
+order by
+	3 DESC ;

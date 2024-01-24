@@ -29,3 +29,19 @@ CREATE TABLE view_schema_check.input_trigger
 ENGINE = MergeTree
 ORDER BY GroupedDateTime
 SETTINGS index_granularity = 8192;
+
+
+CREATE or replace TABLE view_schema_check.input_trigger
+(
+
+    `server_number` String,
+
+    `interface_number` String,
+
+    `timestamp` String,
+
+    `TimeStamp_now` DateTime
+)
+ENGINE = MergeTree
+ORDER BY timestamp
+SETTINGS index_granularity = 8192;

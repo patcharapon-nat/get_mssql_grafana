@@ -27,6 +27,7 @@ def input_data(server_input):
         SELECT 
             '{server_input}' as server_name,
             interface_number,
+            interface_name,
             CONVERT(VARCHAR,timestamp,121) as timedate,
             getdate() as TimeStamp
         FROM 
